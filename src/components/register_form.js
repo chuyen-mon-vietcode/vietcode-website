@@ -55,12 +55,12 @@ class Form extends React.Component {
       body: JSON.stringify({
         personalInfo:
         {
-            firstname: data.firstname,
-            lastname: data.lastname,
+            firstName: data.firstname,
+            lastName: data.lastname,
             birthday: data.birthday,
             school: data.school,
             email: data.email,
-            phonenumber: data.phonenumber
+            phoneNumber: data.phonenumber
         }
       })
     }
@@ -72,12 +72,12 @@ class Form extends React.Component {
     console.log(JSON.stringify({
       personalInfo:
       {
-          firstname: data.firstname,
-          lastname: data.lastname,
+          firstName: data.firstname,
+          lastName: data.lastname,
           birthday: data.birthday,
           school: data.school,
           email: data.email,
-          phonenumber: data.phonenumber
+          phoneNumber: data.phonenumber
       }
     }));
   }

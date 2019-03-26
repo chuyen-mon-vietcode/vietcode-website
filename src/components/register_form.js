@@ -23,7 +23,7 @@ class Form extends React.Component {
       phonenumber: "",
     }
     this.change_info = this.change_info.bind(this);
-    this.check = this.check.bind(this);
+    // this.check = this.check.bind(this);
     this.send = this.send.bind(this);
   }
   change_info(e,property){
@@ -67,20 +67,20 @@ class Form extends React.Component {
   ).then(console.log("success"))
    .catch(err => {console.log(err)})
   }
-  check(){
-    let data = this.state
-    console.log(JSON.stringify({
-      personalInfo:
-      {
-          firstName: data.firstname,
-          lastName: data.lastname,
-          birthday: data.birthday,
-          school: data.school,
-          email: data.email,
-          phoneNumber: data.phonenumber
-      }
-    }));
-  }
+  // check(){
+  //   let data = this.state
+  //   console.log(JSON.stringify({
+  //     personalInfo:
+  //     {
+  //         firstName: data.firstname,
+  //         lastName: data.lastname,
+  //         birthday: data.birthday,
+  //         school: data.school,
+  //         email: data.email,
+  //         phoneNumber: data.phonenumber
+  //     }
+  //   }));
+  // }
   render(){
   return (
     <Card>
@@ -144,7 +144,7 @@ class Form extends React.Component {
           <Button color="primary" onClick = {this.send}>
             Gửi đơn
           </Button>
-          <Button color = "primary" onClick = {this.check}>Check</Button>
+          {/* <Button color = "primary" onClick = {this.check}>Check</Button> */}
         </form>
       </CardBody>
     </Card>

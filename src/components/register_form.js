@@ -1,6 +1,6 @@
 import React from "react";
 import Datetime from 'react-datetime';
-
+import ReactDOM from 'react-dom';
 import {
   FormGroup,
   Label,
@@ -11,6 +11,7 @@ import {
 } from "reactstrap";
 
 let url = "http://localhost:3000/spreadsheets/1D4Xf2oozL27htNN15Gdx_Qa2SltdrtfgZJ6orQk4WGs/Sheet1";
+let ref_array = ['name','email','phonenumber','school','birthday'];
 
 class Form extends React.Component {
   constructor(props){
@@ -27,6 +28,7 @@ class Form extends React.Component {
     // this.check = this.check.bind(this);
     this.send = this.send.bind(this);
     this.update_birthday = this.update_birthday.bind(this);
+    this.clear = this.clear.bind(this);
   }
   change_info(e,property){
     if(property === "name")
@@ -66,8 +68,10 @@ class Form extends React.Component {
         }
       })
     }
-  ).then(console.log("success"))
+  ).then(alert("ĐƠn của bạn đã được gửi thành công"))
    .catch(err => {console.log(err)})
+  //Clear all the fields
+  this.clear();
   }
   // check(){
   //   let data = this.state
@@ -83,6 +87,16 @@ class Form extends React.Component {
   //     }
   //   }));
   // }
+
+  clear(){
+    for(let i=0;i<ref_array.length;i++)
+    {
+      let field = ref_array[i];
+      ReactDOM.findDOMNode(this.refs[field]).value = '';
+    }
+    //The birthday field is too hard to delete
+    ReactDOM.findDOMNode(this.refs.birthday).getElementsByTagName('input')[0].value = '';
+  }
   update_birthday(moment){
     let date = new Date(moment._d);
     let day = date.getDate();
@@ -105,15 +119,17 @@ class Form extends React.Component {
               id="name"
               placeholder="Nhập họ và tên của bạn"
               onChange = {(e) => this.change_info(e,"name")}
+              ref = "name"
             />
           </FormGroup>
 
           <FormGroup>
-            <Label for="name">Ngày sinh (Định dạng tháng/ngày/năm)</Label>
+            <Label for="birthday">Ngày sinh (Định dạng tháng/ngày/năm)</Label>
             <Datetime
               timeFormat={false}
               inputProps={{placeholder:"Nhâp ngày sinh của bạn"}}
               onChange = {this.update_birthday}
+              ref = "birthday"
             />
           </FormGroup>
 
@@ -125,6 +141,7 @@ class Form extends React.Component {
               id="school"
               placeholder="Nhập tên trường của bạn"
               onChange = {(e) => this.change_info(e,"school")}
+              ref = "school"
             />
           </FormGroup>
 
@@ -136,23 +153,25 @@ class Form extends React.Component {
               id="email"
               placeholder="NHập địa chỉ email của bạn"
               onChange = {(e) => this.change_info(e,"email")}
+              ref = "email"
             />
           </FormGroup>
 
           <FormGroup>
-            <Label for="phone">Số điện thoại</Label>
+            <Label for="phonenumber">Số điện thoại</Label>
             <Input
               type="number"
               name="phone number"
               id="phone number"
               placeholder="Nhập số điện thoại của bạn"
               onChange = {(e) => this.change_info(e,"phonenumber")}
+              ref = "phonenumber"
             />
           </FormGroup>
           <Button color="primary" onClick = {this.send}>
             Gửi đơn
           </Button>
-          {/* <Button color = "primary" onClick = {this.check}>Check</Button> */}
+          {/* <Button color = "primary" onClick = {this.clear}>Check</Button> */}
         </form>
       </CardBody>
     </Card>

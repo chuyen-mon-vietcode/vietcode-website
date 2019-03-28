@@ -1,4 +1,5 @@
 import React from "react";
+import Datetime from 'react-datetime';
 
 import {
   FormGroup,
@@ -25,6 +26,7 @@ class Form extends React.Component {
     this.change_info = this.change_info.bind(this);
     // this.check = this.check.bind(this);
     this.send = this.send.bind(this);
+    this.update_birthday = this.update_birthday.bind(this);
   }
   change_info(e,property){
     if(property === "name")
@@ -81,6 +83,14 @@ class Form extends React.Component {
   //     }
   //   }));
   // }
+  update_birthday(moment){
+    let date = new Date(moment._d);
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+    let date_string = day.toString() + "/" + month.toString() + "/" + year.toString();
+    this.setState({birthday:date_string});
+  }
   render(){
   return (
     <Card>
@@ -99,13 +109,11 @@ class Form extends React.Component {
           </FormGroup>
 
           <FormGroup>
-            <Label for="name">Ngày sinh (định dạng ngày/tháng/năm) </Label>
-            <Input
-              type="text"
-              name="birthday"
-              id="birthday"
-              placeholder="Nhập ngày sinh của bạn"
-              onChange = {(e) => this.change_info(e,"birthday")}
+            <Label for="name">Ngày sinh (Định dạng tháng/ngày/năm)</Label>
+            <Datetime
+              timeFormat={false}
+              inputProps={{placeholder:"Nhâp ngày sinh của bạn"}}
+              onChange = {this.update_birthday}
             />
           </FormGroup>
 

@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
-import Layout from '../components/layout';
 import { graphql } from 'gatsby';
 import { Link } from 'gatsby';
+import Navbar from '../components/Navbar/';
+import Footer from '../components/Footer/';
 export default class Blog extends Component{
   render() {
     return (
-    <Layout>
       <div>
-        <h1>Lastest posts</h1>
+        <Navbar/>
+      <div align = "center">
+      <h1>Lastest posts</h1>
         {this.props.data.allMarkdownRemark.edges.map(post => (
       <div key={post.node.id}>
         <h3>{post.node.frontmatter.title}</h3>
@@ -23,8 +25,9 @@ export default class Blog extends Component{
         <hr />
       </div>
     ))}
-      </div>
-    </Layout>
+    </div>
+    <Footer/>
+    </div>
     )
   }
 }

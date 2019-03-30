@@ -5,7 +5,7 @@ export default class Post_template extends Component {
   render() {
     const post = this.props.data.markdownRemark
     return (
-      <Layout>
+      <div>
       <Link to="/post">Go Back</Link>
       <hr />
       <h1>{post.frontmatter.title}</h1>
@@ -13,7 +13,7 @@ export default class Post_template extends Component {
         Posted on {post.frontmatter.date}
       </h4>
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
-      </Layout>
+      </div>
     )
   }
 }

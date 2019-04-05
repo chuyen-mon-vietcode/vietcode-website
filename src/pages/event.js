@@ -9,17 +9,17 @@ export default class Blog extends Component{
       <div>
         <Navbar/>
       <div align = "center">
-      <h1>Lastest posts</h1>
-        {this.props.data.allMarkdownRemark.edges.map(post => (
-      <div key={post.node.id}>
-        <h3>{post.node.frontmatter.title}</h3>
+      <h1>Lastest events</h1>
+        {this.props.data.allMarkdownRemark.edges.map(event => (
+      <div key={event.node.id}>
+        <h3>{event.node.frontmatter.title}</h3>
         <small>
           Posted on{' '}
-          {post.node.frontmatter.date}
+          {event.node.frontmatter.date}
         </small>
         <br />
         <br />
-        <Link to={post.node.frontmatter.path}>Read More</Link>
+        <Link to={event.node.frontmatter.path}>Read More</Link>
         <br />
         <br />
         <hr />
@@ -33,8 +33,8 @@ export default class Blog extends Component{
 }
 
 export const pageQuery = graphql`
-  query PostIndexQuery {
-    allMarkdownRemark(filter: { fileAbsolutePath: { regex: "//_posts/" } }) {
+  query EventIndexQuery {
+    allMarkdownRemark(filter: { fileAbsolutePath: { regex: "//_events/" } }) {
       edges {
         node {
           id

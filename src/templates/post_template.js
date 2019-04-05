@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link, graphql } from 'gatsby';
-import Layout from '../components/layout';
+
 export default class Post_template extends Component {
   render() {
     const post = this.props.data.markdownRemark
@@ -19,7 +19,7 @@ export default class Post_template extends Component {
 }
 
 export const postQuery = graphql`
-  query BlogPostByPath($path: String!) {
+  query PostByPath($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       frontmatter {

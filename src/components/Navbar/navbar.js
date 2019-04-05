@@ -56,6 +56,18 @@ class Navbar extends React.Component {
           //   active: this.state.tabs === 3
           // })}
           // onClick={e => this.toggleTabs(e, "tabs", 3)}
+          to="/event"
+          tag={Link}
+        >
+        Các sự kiện của chúng tôi
+        </NavLink>
+      </NavItem>
+      <NavItem>
+        <NavLink
+          // className={classnames({
+          //   active: this.state.tabs === 3
+          // })}
+          // onClick={e => this.toggleTabs(e, "tabs", 3)}
           to="/register"
           tag={Link}
         >

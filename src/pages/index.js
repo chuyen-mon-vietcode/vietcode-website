@@ -4,7 +4,7 @@ import Footer from '../components/Footer/';
 const IndexPage = () => (
   <div>
   <Navbar/>
-  <h1 align = "center">This is homepage of vietcode-website</h1>
+  <h1 align = "center">Trang chủ của Vietcode</h1>
   <p>Magna exercitation in sit ea dolore duis adipisicing dolor est ex. Dolore proident est consectetur dolore elit non. Esse adipisicing in nostrud et deserunt officia esse enim quis tempor anim dolore. Tempor ea ea deserunt amet non ipsum voluptate reprehenderit sit non deserunt elit irure. Exercitation deserunt adipisicing id mollit irure. Ad ea dolore laboris nostrud esse nisi aliquip quis commodo. Laboris sunt mollit adipisicing sit incididunt fugiat proident reprehenderit elit amet irure.
 
 Laborum ut commodo ullamco ex culpa consectetur voluptate officia nulla proident officia enim. Id aute consectetur aliqua duis adipisicing culpa magna sunt enim esse reprehenderit labore. Adipisicing adipisicing occaecat laboris est.

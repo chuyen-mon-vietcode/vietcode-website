@@ -9,17 +9,17 @@ export default class Blog extends Component{
       <div>
         <Navbar/>
       <div align = "center">
-      <h1>Lastest posts</h1>
+      <h1>Những bài viết mới nhất</h1>
         {this.props.data.allMarkdownRemark.edges.map(post => (
       <div key={post.node.id}>
         <h3>{post.node.frontmatter.title}</h3>
         <small>
-          Posted on{' '}
+          Đăng vào {' '}
           {post.node.frontmatter.date}
         </small>
         <br />
         <br />
-        <Link to={post.node.frontmatter.path}>Read More</Link>
+        <Link to={post.node.frontmatter.path}>Xem thêm</Link>
         <br />
         <br />
         <hr />

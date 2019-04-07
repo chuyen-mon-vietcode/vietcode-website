@@ -6,11 +6,11 @@ export default class Post_template extends Component {
     const post = this.props.data.markdownRemark
     return (
       <div>
-      <Link to="/post">Go Back</Link>
+      <Link to="/post">Quay lại</Link>
       <hr />
       <h1>{post.frontmatter.title}</h1>
       <h4>
-        Posted on {post.frontmatter.date}
+        Đăng vào {post.frontmatter.date}
       </h4>
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>

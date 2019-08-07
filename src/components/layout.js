@@ -8,8 +8,6 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
-import '../assets/css/blk-design-system-react.min.css'
-import '../assets/css/nucleo-icons.css'
 
 import Header from "./header"
 

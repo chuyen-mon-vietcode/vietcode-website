@@ -17,14 +17,14 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `posts`,
-        path: `${__dirname}/content/_posts`,
+        path: `${__dirname}/content/posts`,
       },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `events`,
-        path: `${__dirname}/content/_events`,
+        path: `${__dirname}/content/events`,
       },
     },
     `gatsby-transformer-sharp`,

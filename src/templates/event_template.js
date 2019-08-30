@@ -1,32 +1,51 @@
-import React, { Component } from 'react'
-import { Link, graphql } from 'gatsby';
+import React from 'react'
+import { Link, graphql, useStaticQuery } from 'gatsby';
+import PhotoGallery from '../components/PhotoGallery'
+import "../components/index.css"
 
-export default class Event_template extends Component {
-  render() {
-    const post = this.props.data.markdownRemark
-    return (
-      <div>
-      <Link to="/event">Quay lại</Link>
-      <hr />
-      <h1>{post.frontmatter.title}</h1>
-      <h4>
-        Đăng vào {post.frontmatter.date}
-      </h4>
-      <div dangerouslySetInnerHTML={{ __html: post.html }} />
-      </div>
-    )
-  }
-}
 
 export const eventQuery = graphql`
-  query EventByPath($path: String!) {
-    markdownRemark(frontmatter: { path: { eq: $path } }) {
+  query($path: String!, $title: String!) {
+    markdownFiles: markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       frontmatter {
         path
         title
-        date
+      }
+    }
+    imageFiles: allFile(filter: { extension: {eq: "jpg"}, relativeDirectory: {eq: $title} }) {
+      edges{
+        node{
+          relativePath
+        }
       }
     }
   }
 `
+
+const Event_template = (props) => {
+  console.log(props)
+  const event = props.data.markdownFiles
+  const eventImages = props.data.imageFiles.edges
+  const imagesData = eventImages.map(function(image){
+    return {
+      original: "/eventphoto/" + image.node.relativePath,
+      thumbnail: "/eventphoto/" + image.node.relativePath,
+      originalClass: "image-gallery"
+    }
+  })
+    return (
+      <div>
+      <Link to="/event">Quay lại</Link>
+      <hr />
+      <h1>{event.frontmatter.title}</h1>
+      <h4>
+        Đăng vào {event.frontmatter.date}
+      </h4>
+      <div dangerouslySetInnerHTML={{ __html: event.html }} />
+      <PhotoGallery images = {imagesData}/>
+      </div>
+    )
+}
+
+export default Event_template

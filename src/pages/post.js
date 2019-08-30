@@ -34,7 +34,7 @@ export default class Blog extends Component{
 
 export const pageQuery = graphql`
   query PostIndexQuery {
-    allMarkdownRemark(filter: { fileAbsolutePath: { regex: "//_posts/" } }) {
+    allMarkdownRemark(filter: { fileAbsolutePath: { regex: "//posts/" } }) {
       edges {
         node {
           id

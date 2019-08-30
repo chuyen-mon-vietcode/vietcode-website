@@ -34,7 +34,7 @@ export default class Blog extends Component{
 
 export const pageQuery = graphql`
   query EventIndexQuery {
-    allMarkdownRemark(filter: { fileAbsolutePath: { regex: "//_events/" } }) {
+    allMarkdownRemark(filter: { fileAbsolutePath: { regex: "//events/" } }) {
       edges {
         node {
           id

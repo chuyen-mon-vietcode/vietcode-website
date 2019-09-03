@@ -5,29 +5,40 @@ import "../components/index.css"
 
 
 export const eventQuery = graphql`
-  query($path: String!, $title: String!) {
-    markdownFiles: markdownRemark(frontmatter: { path: { eq: $path } }) {
-      html
-      frontmatter {
-        path
-        title
+  query($path: String!, $components: String!, $main: String!) {
+    markdownFiles: 
+      markdownRemark(frontmatter: { path: { eq: $path } }) {
+        html
+        frontmatter {
+          path
+          title
+        }
       }
-    }
-    imageFiles: allFile(filter: { extension: {eq: "jpg"}, relativeDirectory: {eq: $title} }) {
-      edges{
-        node{
-          relativePath
+    componentImages: 
+      allFile(filter: { extension: {eq: "jpg"}, absolutePath: {regex: $components }}) {
+        edges{
+          node{
+            relativePath
+          }
+        }
+      }
+    mainImages: 
+      allFile(filter: { extension: {eq: "jpg"}, absolutePath: {regex: $main }}) {
+        edges{
+          node{
+            relativePath
+          }
         }
       }
     }
-  }
 `
 
 const Event_template = (props) => {
   console.log(props)
   const event = props.data.markdownFiles
-  const eventImages = props.data.imageFiles.edges
-  const imagesData = eventImages.map(function(image){
+  const componentImages = props.data.componentImages.edges
+  const mainImages = props.data.mainImages.edges
+  const imagesData = componentImages.map(function(image){
     return {
       original: "/eventphoto/" + image.node.relativePath,
       thumbnail: "/eventphoto/" + image.node.relativePath,

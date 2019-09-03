@@ -1,9 +1,6 @@
 import React from "react"
-import Navbar from '../components/Navbar/';
-import Footer from '../components/Footer/';
 const IndexPage = () => (
   <div>
-  <Navbar/>
   <h1 align = "center">Trang chủ của Vietcode</h1>
   <p>Magna exercitation in sit ea dolore duis adipisicing dolor est ex. Dolore proident est consectetur dolore elit non. Esse adipisicing in nostrud et deserunt officia esse enim quis tempor anim dolore. Tempor ea ea deserunt amet non ipsum voluptate reprehenderit sit non deserunt elit irure. Exercitation deserunt adipisicing id mollit irure. Ad ea dolore laboris nostrud esse nisi aliquip quis commodo. Laboris sunt mollit adipisicing sit incididunt fugiat proident reprehenderit elit amet irure.
 
@@ -44,7 +41,6 @@ Proident qui consectetur nostrud deserunt eu elit consequat est mollit eiusmod a
 
 Fugiat in nulla deserunt Lorem dolor proident velit. Excepteur ad incididunt irure exercitation adipisicing cillum adipisicing qui culpa. Nostrud ea elit dolor minim.
 </p>
-  <Footer/>
   </div>
 )
 

@@ -28,7 +28,7 @@ exports.createPages = ({ graphql, actions }) => {
             fileAbsolutePath
             frontmatter {
               path
-              title
+              name
             }
           }
         }
@@ -49,7 +49,8 @@ exports.createPages = ({ graphql, actions }) => {
         path: node.frontmatter.path,
         component: eventTemplate,
         context: {
-          title: node.frontmatter.title
+          components: "/" + `${node.frontmatter.name}` + "/components/",
+          main: "/" + `${node.frontmatter.name}` + "/main/"
         }
     });
   })   

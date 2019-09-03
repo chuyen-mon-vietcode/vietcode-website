@@ -1,13 +1,10 @@
 import React, { Component } from 'react'
 import { graphql } from 'gatsby';
 import { Link } from 'gatsby';
-import Navbar from '../components/Navbar/';
-import Footer from '../components/Footer/';
+
 export default class Blog extends Component{
   render() {
     return (
-      <div>
-        <Navbar/>
       <div align = "center">
       <h1>Những bài viết mới nhất</h1>
         {this.props.data.allMarkdownRemark.edges.map(post => (
@@ -25,8 +22,6 @@ export default class Blog extends Component{
         <hr />
       </div>
     ))}
-    </div>
-    <Footer/>
     </div>
     )
   }

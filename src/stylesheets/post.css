@@ -1,0 +1,30 @@
+.post h1 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    color: rgb(32, 46, 83);
+}
+
+.post h2 {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.post h3 {
+    font-size: 23px;
+    margin-bottom: 10px;
+}
+
+.post h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.post h5 {
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.post h6 {
+    font-size: 15px;
+    margin-bottom: 10px;
+}

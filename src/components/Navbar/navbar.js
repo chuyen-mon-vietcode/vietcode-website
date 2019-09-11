@@ -120,7 +120,7 @@ const Header = ({ siteTitle }) => {
               transition: "0.5s",
             }}>
               <Link
-                to="/events"
+                to="/event"
                 style={{
                   color: `white`,
                   textDecoration: `none`,    

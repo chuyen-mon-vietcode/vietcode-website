@@ -49,8 +49,8 @@ exports.createPages = ({ graphql, actions }) => {
         path: node.frontmatter.path,
         component: eventTemplate,
         context: {
-          components: "/" + `${node.frontmatter.name}` + "/components/",
-          main: "/" + `${node.frontmatter.name}` + "/main/main-rect.jpg/"
+          components: "/" + `${node.frontmatter.name}` + "/photo/components/",
+          main: "/" + `${node.frontmatter.name}` + "/photo/main/main-rect.jpg/"
         }
     });
   })   

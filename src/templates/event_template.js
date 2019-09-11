@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, graphql, useStaticQuery } from 'gatsby';
+import { Link, graphql } from 'gatsby';
 import PhotoGallery from '../components/PhotoGallery'
 import "../components/index.css"
 import { CardMedia } from '@material-ui/core';
@@ -50,8 +50,8 @@ const Event_template = (props) => {
   const mainImages = props.data.mainImages.edges
   const imagesData = componentImages.map(function(image){
     return {
-      original: "/eventphoto/" + image.node.relativePath,
-      thumbnail: "/eventphoto/" + image.node.relativePath,
+      original: "/" + image.node.relativePath,
+      thumbnail: "/" + image.node.relativePath,
       originalClass: "image-gallery"
     }
   })
@@ -65,7 +65,7 @@ const Event_template = (props) => {
       </h4>
         <CardActionArea>
           <CardMedia 
-            image = {"/eventphoto/" + mainImages[0].node.relativePath}
+            image = {"/" + mainImages[0].node.relativePath}
             className = {classes.main}
             title = "main"
           />

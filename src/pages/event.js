@@ -14,7 +14,7 @@ export default class Blog extends Component{
         {markdownFiles.map(event => (
           <EventCard eventContent = {{
             id: event.node.id,
-            imageUrl: "/eventphoto/" + event.node.frontmatter.name + "/main/main-square.jpg",
+            imageUrl: "/events/" + event.node.frontmatter.name + "/photo/main/main-square.jpg",
             url: event.node.frontmatter.path,
             date: event.node.frontmatter.date,
             title: event.node.frontmatter.title

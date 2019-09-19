@@ -8,14 +8,16 @@ import Post from "../components/post"
 function NewsPage() {
     const { allMds: { nodes } } = useStaticQuery(graphql`
         query {
-            allMds: allMarkdownRemark {
-                nodes {
-                    html
-                    frontmatter {
-                        title
+            allMds: allMarkdownRemark(filter: { fileAbsolutePath: { regex: "//posts/" } }) {
+                        edges {
+                            node {
+                                html
+                                frontmatter {
+                                    title
+                                }
+                            }
+                        }
                     }
-                }
-            }
         }
     `)
     return (

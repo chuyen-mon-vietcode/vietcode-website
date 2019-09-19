@@ -5,6 +5,8 @@ import "../components/index.css"
 import { CardMedia } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import CardActionArea from '@material-ui/core/CardActionArea';
+import Layout from '../components/layout';
+import SEO from '../components/seo';
 
 export const eventQuery = graphql`
   query($path: String!, $components: String!, $main: String!) {
@@ -43,7 +45,6 @@ const useStyles = makeStyles({
 
 
 const Event_template = (props) => {
-  console.log(props)
   const classes = useStyles();
   const event = props.data.markdownFiles
   const componentImages = props.data.componentImages.edges
@@ -56,7 +57,8 @@ const Event_template = (props) => {
     }
   })
     return (
-      <div>
+      <Layout>
+      <SEO title = {"Event - " + event.frontmatter.title}/>
       <Link to="/event">Quay lại</Link>
       <hr />
       <h1>{event.frontmatter.title}</h1>
@@ -72,7 +74,7 @@ const Event_template = (props) => {
         </CardActionArea>
       <div dangerouslySetInnerHTML={{ __html: event.html }} />
       <PhotoGallery images = {imagesData}/>
-      </div>
+      </Layout>
     )
 }
 

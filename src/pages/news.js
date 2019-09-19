@@ -6,7 +6,7 @@ import SEO from "../components/seo"
 import Post from "../components/post"
 
 function NewsPage() {
-    const { allMds: { nodes } } = useStaticQuery(graphql`
+    const news = useStaticQuery(graphql`
         query {
             allMds: allMarkdownRemark(filter: { fileAbsolutePath: { regex: "//posts/" } }) {
                         edges {
@@ -20,6 +20,7 @@ function NewsPage() {
                     }
         }
     `)
+    let nodes = news.allMds.edges
     return (
         <Layout>
             <SEO title="Home Page" />

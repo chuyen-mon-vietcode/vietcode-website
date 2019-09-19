@@ -4,4 +4,4 @@ date: "29-03-2019"
 title: "First post"
 ---
 
-post 2
+HTML, CSS and JAVASCRIPT

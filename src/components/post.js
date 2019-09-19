@@ -18,12 +18,13 @@ const styles = {
 }
 
 const Post = ({ node }) => {
+	console.log(node);
     return (
         <div className="post">
             <div style={styles.postContainer}>
                 <div style={styles.margin}>
 
-                    <Title text={node.frontmatter.title} />
+                    <Title text={node.node.frontmatter.title} />
 
                     {/* <Author name={node.frontmatter.author} /> */}
 
@@ -35,7 +36,7 @@ const Post = ({ node }) => {
                         }}
                     />
 
-                    <div dangerouslySetInnerHTML={{ __html: node.html }}
+                    <div dangerouslySetInnerHTML={{ __html: node.node.html }}
                         style={{
                             padding: "10px",
                         }} />
